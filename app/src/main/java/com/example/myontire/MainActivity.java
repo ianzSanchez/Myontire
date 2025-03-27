@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
         @Override
         public void run() {
-            Intent intent = new Intent(MainActivity.this, homepage.class); //ganti homepage.class sama intent login
+            Intent intent = new Intent(MainActivity.this, LoginPage.class); //ganti homepage.class sama intent login
             startActivity(intent);
             finish();
         }
