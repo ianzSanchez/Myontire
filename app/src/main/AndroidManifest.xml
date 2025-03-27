@@ -13,6 +13,10 @@
         android:theme="@style/Theme.Myontire"
         tools:targetApi="31">
         <activity
+            android:name=".pagewa"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".FindMechanic"
             android:exported="false" />
         <activity

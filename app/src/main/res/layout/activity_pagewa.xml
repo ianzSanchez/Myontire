@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pagewa">
+
+    <ImageView
+        android:id="@+id/bannerwa"
+        android:layout_width="415dp"
+        android:layout_height="202dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/wabanner" />
+
+    <TextView
+        android:id="@+id/text3wa"
+        android:layout_width="294dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="59dp"
+        android:text="please contact our mechanic for more detailed information and communication."
+        android:textAlignment="center"
+        android:textColor="#023047"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text2wa" />
+
+    <Button
+        android:id="@+id/buttonwa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="140dp"
+        android:backgroundTint="#023047"
+        android:text="Contact here"
+        app:circularflow_radiusInDP="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text3wa" />
+
+    <TextView
+        android:id="@+id/text2wa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="-2dp"
+        android:layout_marginEnd="71dp"
+        android:text="Your order has been recorded"
+        android:textColor="#023047"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text1wa" />
+
+    <TextView
+        android:id="@+id/text1wa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="154dp"
+        android:layout_marginTop="148dp"
+        android:layout_marginEnd="155dp"
+        android:text="Thank You!"
+        android:textColor="#023047"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bannerwa" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
