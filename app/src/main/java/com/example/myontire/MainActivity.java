@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
-    // Intent ke activity berikutnya setelah 8 detik
+    // Intent ke activity berikutnya setelah 5 detik
         new Handler().postDelayed(new Runnable() {
         @Override
         public void run() {
@@ -32,6 +32,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-    }, 8000); // 8000 milidetik = 8 detik
+    }, 5000); // 5000 milidetik = 5 detik
     }
 }
