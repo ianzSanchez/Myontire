@@ -13,23 +13,27 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class homepage extends AppCompatActivity {
 
-    Button FindMechanic1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_homepage);
 
-    FindMechanic1 =(Button) findViewById(R.id.buttonps);
+        int[] buttonIds = {
+                R.id.buttonps, R.id.buttonbr, R.id.buttonrsp, R.id.buttontm,
+                R.id.buttonet, R.id.buttonac, R.id.buttonext,
+                R.id.buttoninter, R.id.buttonat
+        };
 
-    FindMechanic1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent act1 = new Intent(getApplicationContext(), FindMechanic.class);
-                startActivity(act1);
+        for (int id : buttonIds) {
+            Button button = findViewById(id);
+            if (button != null) {
+                button.setOnClickListener(v -> {
+                    Intent intent = new Intent(getApplicationContext(), FindMechanic.class);
+                    startActivity(intent);
+                });
             }
-        });
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

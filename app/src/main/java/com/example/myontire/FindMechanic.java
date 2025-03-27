@@ -29,6 +29,7 @@ public class FindMechanic extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_find_mechanic);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -40,6 +41,8 @@ public class FindMechanic extends AppCompatActivity {
 
         addMechanicCard(R.id.mechanic_name_budi, R.id.mechanic_card_budi);
         addMechanicCard(R.id.mechanic_name_agus, R.id.mechanic_card_agus);
+        addMechanicCard(R.id.mechanic_name_viko, R.id.mechanic_card_viko);
+        addMechanicCard(R.id.mechanic_name_abdul, R.id.mechanic_card_abdul);
 
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
@@ -66,12 +69,22 @@ public class FindMechanic extends AppCompatActivity {
 
     private void filterMechanics(String query) {
         query = query.toLowerCase();
+
+        if (query.isEmpty()) {
+            for (View card : mechanicCards) {
+                card.setVisibility(View.VISIBLE);
+            }
+            return;
+        }
+        for (View card : mechanicCards) {
+            card.setVisibility(View.GONE);
+        }
+
         for (int i = 0; i < mechanicNames.size(); i++) {
             String name = mechanicNames.get(i).getText().toString().toLowerCase();
             if (name.contains(query)) {
                 mechanicCards.get(i).setVisibility(View.VISIBLE);
-            } else {
-                mechanicCards.get(i).setVisibility(View.GONE);
+                break;
             }
         }
     }
