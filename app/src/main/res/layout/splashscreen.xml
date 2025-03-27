@@ -11,8 +11,10 @@
 
     <ImageView
         android:id="@+id/tangbg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="635dp"
+        android:layout_height="929dp"
+        android:layout_marginTop="-10dp"
+        android:layout_marginEnd="-100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bgtang" />
@@ -31,13 +33,13 @@
         android:id="@+id/moto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="-20dp"
         android:layout_marginEnd="84dp"
-        android:layout_marginBottom="193dp"
         android:text="Find the Best Mechanic, Without Hassle"
         android:textColor="#FFFFFF"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spalashmyontire" />
 
     <ImageView
         android:id="@+id/spalashmyontire"

@@ -5,4 +5,454 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".homepage"/>
+    tools:context=".homepage">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardurgent"
+        android:layout_width="347dp"
+        android:layout_height="115dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="32dp"
+        app:cardBackgroundColor="#fb8500"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/bgurgent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/bglogobutton" />
+
+        <TextView
+            android:id="@+id/anyurgent"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="20dp"
+            android:text="Any urgency on the road?"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/buttonurgent"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="98dp"
+            android:layout_marginTop="55dp"
+            android:backgroundTint="#ffb703"
+            android:text="Find it now!"
+            android:textSize="16sp"
+            android:textStyle="bold|italic" />
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/headurgent"
+        android:layout_width="144dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="98dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/banner"
+        app:srcCompat="@drawable/urgent" />
+
+    <ImageView
+        android:id="@+id/banner"
+        android:layout_width="413dp"
+        android:layout_height="72dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hpbanner" />
+
+    <ImageView
+        android:id="@+id/logohome"
+        android:layout_width="140dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logotext" />
+
+    <TextView
+        android:id="@+id/timerepair"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="36dp"
+        android:text="Time to Repair the Car?"
+        android:textColor="#000"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardurgent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardps"
+        android:layout_width="110dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timerepair">
+
+        <TextView
+            android:id="@+id/textps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="63dp"
+            android:text="Periodic Service"
+            android:textAlignment="center"
+            android:textColor="#023047"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageps"
+            android:layout_width="wrap_content"
+            android:layout_height="76dp"
+            android:layout_marginTop="-5dp"
+            app:srcCompat="@drawable/berkala" />
+
+        <Button
+            android:id="@+id/buttonps"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.0"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Button"
+            app:cornerRadius="10dp"
+            app:iconPadding="0dp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardbr"
+        android:layout_width="110dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/cardrsp"
+        app:layout_constraintStart_toEndOf="@+id/cardps"
+        app:layout_constraintTop_toBottomOf="@+id/timerepair">
+
+        <TextView
+            android:id="@+id/textbr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="63dp"
+            android:text="Body Repair"
+            android:textAlignment="center"
+            android:textColor="#023047"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imagebr"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            app:srcCompat="@drawable/body" />
+
+        <Button
+            android:id="@+id/buttonbr"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.0"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Button"
+            app:cornerRadius="10dp"
+            app:iconPadding="0dp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardrsp"
+        android:layout_width="110dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="25dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timerepair">
+
+        <TextView
+            android:id="@+id/textrsp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="63dp"
+            android:lineSpacingExtra="-3sp"
+            android:text="Replace Spare Parts"
+            android:textAlignment="center"
+            android:textColor="#023047"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imagersp"
+            android:layout_width="wrap_content"
+            android:layout_height="53dp"
+            android:layout_marginTop="8dp"
+            app:srcCompat="@drawable/spare" />
+
+        <Button
+            android:id="@+id/buttonrsp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.0"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Button"
+            app:cornerRadius="10dp"
+            app:iconPadding="0dp"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardtm"
+        android:layout_width="110dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardps">
+
+        <TextView
+            android:id="@+id/texttm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            android:text="Tire Maintenance"
+            android:textAlignment="center"
+            android:textColor="#023047"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imagetm"
+            android:layout_width="wrap_content"
+            android:layout_height="53dp"
+            android:layout_marginTop="9dp"
+            app:srcCompat="@drawable/tire" />
+
+        <Button
+            android:id="@+id/buttontm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.0"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Button"
+            app:cornerRadius="10dp"
+            app:iconPadding="0dp"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardet"
+        android:layout_width="110dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/cardac"
+        app:layout_constraintTop_toBottomOf="@+id/cardbr">
+
+        <TextView
+            android:id="@+id/textet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="63dp"
+            android:text="Emission Test"
+            android:textAlignment="center"
+            android:textColor="#023047"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageet"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_marginTop="9dp"
+            app:srcCompat="@drawable/emisi" />
+
+        <Button
+            android:id="@+id/buttonet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.0"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Button"
+            app:cornerRadius="10dp"
+            app:iconPadding="0dp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardac"
+        android:layout_width="110dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardbr">
+
+        <TextView
+            android:id="@+id/textac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="63dp"
+            android:text="Air Conditioning"
+            android:textAlignment="center"
+            android:textColor="#023047"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageac"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_marginTop="7dp"
+            app:srcCompat="@drawable/ac" />
+
+        <Button
+            android:id="@+id/buttonac"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.0"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Button"
+            app:cornerRadius="10dp"
+            app:iconPadding="0dp"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardext"
+        android:layout_width="110dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardtm">
+
+        <TextView
+            android:id="@+id/textext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="63dp"
+            android:text="Exterior"
+            android:textAlignment="center"
+            android:textColor="#023047"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageext"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:layout_marginTop="3dp"
+            app:srcCompat="@drawable/eks" />
+
+        <Button
+            android:id="@+id/buttonext"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.0"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Button"
+            app:cornerRadius="10dp"
+            app:iconPadding="0dp"/>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardinter"
+        android:layout_width="110dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="25dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintStart_toEndOf="@+id/cardext"
+        app:layout_constraintTop_toBottomOf="@+id/cardtm">
+
+        <TextView
+            android:id="@+id/textinter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="63dp"
+            android:text="Interior"
+            android:textAlignment="center"
+            android:textColor="#023047"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageinter"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="7dp"
+            app:srcCompat="@drawable/inter" />
+
+        <Button
+            android:id="@+id/buttoninter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.0"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Button"
+            app:cornerRadius="10dp"
+            app:iconPadding="0dp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardat"
+        android:layout_width="110dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardtm">
+
+        <TextView
+            android:id="@+id/textat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="58dp"
+            android:lineSpacingExtra="-3sp"
+            android:text="Automatic Transmission"
+            android:textAlignment="center"
+            android:textColor="#023047"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageat"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="7dp"
+            app:srcCompat="@drawable/trans" />
+
+        <Button
+            android:id="@+id/buttonat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.0"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="Button"
+            app:cornerRadius="10dp"
+            app:iconPadding="0dp" />
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
