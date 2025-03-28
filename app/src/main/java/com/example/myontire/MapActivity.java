@@ -2,6 +2,7 @@ package com.example.myontire;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -40,6 +41,10 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     private Marker currentMarker;
     private boolean isMarkerMovedByUser = false;
 
+    private Button Confirm;
+    private Button GetCurrentLocation;
+    private String address;
+
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
     @Override
@@ -48,17 +53,24 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         setContentView(R.layout.activity_map);
 
         locationText = findViewById(R.id.location_text);
-        Button btnGetCurrentLocation = findViewById(R.id.btn_get_location);
+        GetCurrentLocation = findViewById(R.id.btn_get_location);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        Confirm = findViewById(R.id.btn_confirm);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
 
-        btnGetCurrentLocation.setOnClickListener(v -> {
+        GetCurrentLocation.setOnClickListener(v -> {
             isMarkerMovedByUser = false;
             getLastKnownLocation();
+        });
+
+        Confirm.setOnClickListener(v -> {
+            Intent act1 = new Intent(MapActivity.this, DataBooking.class);
+            act1.putExtra("Chosen_Address", address);
+            startActivity(act1);
         });
     }
 
@@ -144,12 +156,13 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         try {
             List<Address> addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
             if (addresses != null && !addresses.isEmpty()) {
-                locationText.setText(addresses.get(0).getAddressLine(0));
+                address = addresses.get(0).getAddressLine(0); // Simpan ke variabel instance
+                locationText.setText(address);
             } else {
                 locationText.setText(getString(R.string.address_not_found));
             }
         } catch (IOException e) {
-            Log.e("MainActivity", "Error retrieving address", e);
+            Log.e("MapActivity", "Error retrieving address", e);
             locationText.setText(getString(R.string.error_retrieving_address));
         }
     }
