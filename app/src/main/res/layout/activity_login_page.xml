@@ -16,13 +16,13 @@
         android:backgroundTint="#ffffff"
         android:letterSpacing="0.1"
         android:text="sign up"
-        android:textColor="#3F51B5"
+        android:textColor="#27334B"
         android:textSize="15sp"
         app:cornerRadius="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginButton"
-        app:strokeColor="#3F51B5"
+        app:strokeColor="#27334B"
         app:strokeWidth="2dp" />
 
     <Button
@@ -30,7 +30,7 @@
         android:layout_width="347dp"
         android:layout_height="57dp"
         android:layout_marginBottom="156dp"
-        android:backgroundTint="#3F51B5"
+        android:backgroundTint="#27334B"
         android:letterSpacing="0.1"
         android:text="login"
         android:textSize="15sp"
