@@ -30,6 +30,7 @@ public class DataBooking extends AppCompatActivity implements OnMapReadyCallback
     private TextView textViewTanggal, textViewJam;
     private MapView mapView;
     private GoogleMap gMap;
+    private Button buttonsave;
 
     private static final int REQUEST_MAP = 100;
 
@@ -46,6 +47,12 @@ public class DataBooking extends AppCompatActivity implements OnMapReadyCallback
         textViewTanggal = findViewById(R.id.textViewtanggal);
         textViewJam = findViewById(R.id.textViewjam);
         mapView = findViewById(R.id.mapView);
+        Button buttonSave = findViewById(R.id.btn_save);
+
+        buttonSave.setOnClickListener(v -> {
+            Intent intent = new Intent(DataBooking.this, RequestStatusActivity.class);
+            startActivity(intent);
+        });
 
         addressTextView.setOnClickListener(v -> {
             Intent intent = new Intent(DataBooking.this, MapActivity.class);

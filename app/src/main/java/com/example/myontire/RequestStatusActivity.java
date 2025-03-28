@@ -27,7 +27,17 @@ public class RequestStatusActivity extends AppCompatActivity {
         statusProgressBar = findViewById(R.id.statusProgressBar);
         cancelRequestButton = findViewById(R.id.cancelRequestButton);
 
-        // Example action: Cancel request
+        // Intent otomatis setelah 5 detik
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(RequestStatusActivity.this, pagewa.class);
+                startActivity(intent);
+                finish();
+            }
+        }, 5000); // 5000 ms = 5 detik
+
+        // Cancel request action
         cancelRequestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,4 +58,3 @@ public class RequestStatusActivity extends AppCompatActivity {
         });
     }
 }
-

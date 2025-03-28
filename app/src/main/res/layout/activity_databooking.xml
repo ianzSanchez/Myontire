@@ -147,7 +147,7 @@
             </FrameLayout>
 
             <Button
-                android:id="@+id/buttonsave"
+                android:id="@+id/btn_save"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="16dp"
