@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="3dp"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="3dp"
+    android:background="#eeefef"
+    app:barrierMargin="3dp"
+    app:circularflow_defaultRadius="17dp"
+    app:layout_marginBaseline="4dp"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/chatv"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:backgroundTint="#fb8500"
+        android:text="Chat Sekarang"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.922" />
+
+    <ImageView
+        android:id="@+id/kotakv"
+        android:layout_width="490dp"
+        android:layout_height="350dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.777"
+        app:srcCompat="@drawable/navbarmontir__1_" />
+
+    <TextView
+        android:id="@+id/Jakarta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jakarta"
+        android:textColor="#023047"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.615" />
+
+    <TextView
+        android:id="@+id/customerv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5.110 Customer sudah melakukan chat"
+        android:textColor="#023047"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.755" />
+
+    <TextView
+        android:id="@+id/hargav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rp.150.000"
+        android:textColor="#fb8500"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.702" />
+
+    <TextView
+        android:id="@+id/namav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Viko Prasetyo - Bodywork Specialist"
+        android:textColor="#000"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.239"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.545" />
+
+    <ImageView
+        android:id="@+id/navbarv"
+        android:layout_width="557dp"
+        android:layout_height="93dp"
+        android:layout_marginBottom="523dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/montirokejos" />
+
+    <ImageView
+        android:id="@+id/logov"
+        android:layout_width="164dp"
+        android:layout_height="87dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="225dp"
+        android:layout_marginBottom="638dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logotext" />
+
+    <ImageView
+        android:id="@+id/backv"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.031"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <ImageView
+        android:id="@+id/bulatv"
+        android:layout_width="187dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="387dp"
+        android:layout_marginEnd="206dp"
+        android:layout_marginBottom="222dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bulatanmontir" />
+
+    <ImageView
+        android:id="@+id/suitcasev"
+        android:layout_width="38dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="428dp"
+        android:layout_marginEnd="338dp"
+        android:layout_marginBottom="264dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/likesuitcasemontir" />
+
+    <TextView
+        android:id="@+id/tahunv"
+        android:layout_width="76dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="431dp"
+        android:layout_marginEnd="252dp"
+        android:layout_marginBottom="264dp"
+        android:text="8+ Tahun"
+        android:textColor="#eeee"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/fotov"
+        android:layout_width="270dp"
+        android:layout_height="285dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="412dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/montir4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
