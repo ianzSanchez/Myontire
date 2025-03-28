@@ -1,13 +1,14 @@
 package com.example.myontire;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -44,6 +45,12 @@ public class FindMechanic extends AppCompatActivity {
         addMechanicCard(R.id.mechanic_name_viko, R.id.mechanic_card_viko);
         addMechanicCard(R.id.mechanic_name_abdul, R.id.mechanic_card_abdul);
 
+        // Handle button clicks for mechanics
+        setChooseButtonClickListener(R.id.btn_choose_budi);
+        setChooseButtonClickListener(R.id.btn_choose_agus);
+        setChooseButtonClickListener(R.id.btn_choose_viko);
+        setChooseButtonClickListener(R.id.btn_choose_abdul);
+
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -56,6 +63,21 @@ public class FindMechanic extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {}
         });
+    }
+
+    // Method to handle button clicks dynamically for each "choose" button
+    private void setChooseButtonClickListener(int buttonId) {
+        Button chooseButton = findViewById(buttonId);
+        if (chooseButton != null) {
+            chooseButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Open RequestStatusActivity when a button is clicked
+                    Intent intent = new Intent(FindMechanic.this, RequestStatusActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
     private void addMechanicCard(int nameId, int cardId) {
