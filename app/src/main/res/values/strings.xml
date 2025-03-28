@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Myontire</string>
+    <string name="fetching_location">Fetching location…</string>
+    <string name="address_not_found">Address not found</string>
+    <string name="error_retrieving_address">Error retrieving address</string>
+    <string name="your_location">Your Location</string>
+    <string name="selected_location">Selected Location</string>
+    <string name="get_location">Get Your Current Location</string>
+    <string name="confirm">Confirm</string>
+    <string name="maps">Google Maps</string>
 </resources>

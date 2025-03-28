@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/your_location"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:padding="12dp"
+        android:background="@drawable/gradient_header"
+        android:layout_centerHorizontal="true" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_below="@id/title_text"
+        tools:layout="@layout/map"/>
+
+    <TextView
+        android:id="@+id/location_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/fetching_location"
+        android:layout_below="@id/map"
+        android:padding="10dp"
+        android:background="#ffb703"
+        android:textColor="#000"/>
+
+    <Button
+        android:id="@+id/btn_get_location"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/location_text"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#0C748E"
+        android:text="@string/get_location"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        app:cornerRadius="7dp" />
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_get_location"
+        android:layout_margin="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#023047"
+        android:text="@string/confirm"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        app:cornerRadius="7dp"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
