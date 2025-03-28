@@ -122,10 +122,8 @@
         android:layout_marginBottom="638dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/logotext" />
 
     <ImageView
@@ -144,28 +142,45 @@
         android:id="@+id/bulatb"
         android:layout_width="188dp"
         android:layout_height="122dp"
-        app:srcCompat="@drawable/bulatanmontir"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="385dp" />
+        android:layout_marginTop="385dp"
+        android:layout_marginEnd="217dp"
+        android:layout_marginBottom="218dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bulatanmontir" />
 
     <ImageView
         android:id="@+id/suitcaseb"
         android:layout_width="38dp"
         android:layout_height="33dp"
-        app:srcCompat="@drawable/likesuitcasemontir"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="427dp" />
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="427dp"
+        android:layout_marginEnd="342dp"
+        android:layout_marginBottom="265dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/likesuitcasemontir" />
 
     <TextView
         android:id="@+id/tahunb"
         android:layout_width="76dp"
         android:layout_height="30dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="427dp"
+        android:layout_marginEnd="253dp"
+        android:layout_marginBottom="268dp"
         android:text="9+ Tahun"
         android:textColor="#eeee"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="427dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/fotob"
@@ -181,13 +196,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.313"
         app:srcCompat="@drawable/montir3" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_menu_revert"
-        tools:layout_editor_absoluteX="11dp"
-        tools:layout_editor_absoluteY="35dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

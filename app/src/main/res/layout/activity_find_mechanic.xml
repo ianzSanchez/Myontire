@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".FindMechanic">
 
     <TextView
@@ -25,7 +26,6 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="30dp"
         android:background="@android:drawable/edit_text"
@@ -35,7 +35,36 @@
         app:layout_constraintBottom_toTopOf="@+id/mechanic_scroll_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_filter_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="Filter location"
+        android:textColor="#27334B"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/spinner_location"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_search" />
+
+    <Spinner
+        android:id="@+id/spinner_location"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@android:drawable/edit_text"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@id/mechanic_scroll_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_filter_location" />
 
     <ScrollView
         android:id="@+id/mechanic_scroll_view"
@@ -98,10 +127,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="33dp"
                         android:text="Services Start From"
                         android:textColor="#808080"
-                        android:textSize="14sp"
-                        android:layout_marginTop="33dp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -122,7 +151,7 @@
                         android:layout_width="72dp"
                         android:layout_height="72dp"
                         android:layout_marginBottom="8dp"
-                        android:src="@drawable/budi" />
+                        android:src="@drawable/montir3" />
 
                     <Button
                         android:id="@+id/btn_choose_budi"
@@ -133,8 +162,7 @@
                         android:paddingHorizontal="12dp"
                         android:paddingVertical="6dp"
                         android:text="Choose This"
-                        android:textColor="@android:color/white"
-                        />
+                        android:textColor="@android:color/white" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -181,10 +209,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="33dp"
                         android:text="Services Start From"
                         android:textColor="#808080"
-                        android:textSize="14sp"
-                        android:layout_marginTop="33dp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -205,7 +233,7 @@
                         android:layout_width="72dp"
                         android:layout_height="72dp"
                         android:layout_marginBottom="8dp"
-                        android:src="@drawable/agus" />
+                        android:src="@drawable/abdul" />
 
                     <Button
                         android:id="@+id/btn_choose_agus"
@@ -257,7 +285,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Location: Medan"
+                        android:text="Location: Surabaya"
                         android:textColor="#808080"
                         android:textSize="14sp" />
 
@@ -265,10 +293,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="33dp"
                         android:text="Services Start From"
                         android:textColor="#808080"
-                        android:textSize="14sp"
-                        android:layout_marginTop="33dp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -341,17 +369,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Location: Medan"
+                        android:text="Location: Solo"
                         android:textColor="#808080"
                         android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="33dp"
                         android:text="Services Start From"
                         android:textColor="#808080"
-                        android:textSize="14sp"
-                        android:layout_marginTop="33dp" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -372,7 +400,7 @@
                         android:layout_width="72dp"
                         android:layout_height="72dp"
                         android:layout_marginBottom="8dp"
-                        android:src="@drawable/viko" />
+                        android:src="@drawable/budi" />
 
                     <Button
                         android:id="@+id/btn_choose_viko"

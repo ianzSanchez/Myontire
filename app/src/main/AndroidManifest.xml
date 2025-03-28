@@ -15,14 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Myontire"
         tools:targetApi="31">
+
         <activity
             android:name=".MapActivity"
             android:exported="false" />
         <activity
             android:name=".pagewa"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".FindMechanic"
             android:exported="false" />
@@ -34,6 +33,18 @@
             android:exported="false" />
         <activity
             android:name=".RequestStatusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Agus"
+            android:exported="false" />
+        <activity
+            android:name=".Budi"
+            android:exported="false" />
+        <activity
+            android:name=".Abdul"
+            android:exported="false" />
+        <activity
+            android:name=".Viko"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
