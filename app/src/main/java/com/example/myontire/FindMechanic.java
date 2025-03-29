@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -47,6 +48,14 @@ public class FindMechanic extends AppCompatActivity {
         etSearch = findViewById(R.id.et_search);
         spLocation = findViewById(R.id.spinner_location);
         mechanicList = findViewById(R.id.mechanic_list);
+        ImageView backbtnfind = findViewById(R.id.backbtnfind);
+
+        if (backbtnfind != null) {
+            backbtnfind.setOnClickListener(v -> {
+                Intent intent = new Intent(FindMechanic.this, homepage.class);
+                startActivity(intent);
+            });
+        }
 
         // Tambahkan daftar lokasi ke Spinner
         String[] locations = {"All", "Jakarta", "Bandung", "Surabaya", "Solo"};
@@ -58,7 +67,6 @@ public class FindMechanic extends AppCompatActivity {
         addMechanicCard(R.id.mechanic_name_agus, R.id.mechanic_card_agus, "Bandung");
         addMechanicCard(R.id.mechanic_name_viko, R.id.mechanic_card_viko, "Solo");
         addMechanicCard(R.id.mechanic_name_abdul, R.id.mechanic_card_abdul, "Surabaya");
-
 
         Button btnChooseAgus = findViewById(R.id.btn_choose_agus);
         if (btnChooseAgus != null) {
