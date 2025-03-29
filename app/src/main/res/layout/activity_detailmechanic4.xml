@@ -102,8 +102,8 @@
 
     <ImageView
         android:id="@+id/navbarb"
-        android:layout_width="557dp"
-        android:layout_height="90dp"
+        android:layout_width="535dp"
+        android:layout_height="78dp"
         android:layout_marginBottom="523dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -115,15 +115,17 @@
 
     <ImageView
         android:id="@+id/logob"
-        android:layout_width="164dp"
-        android:layout_height="87dp"
+        android:layout_width="87dp"
+        android:layout_height="38dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="225dp"
         android:layout_marginBottom="638dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.569"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.371"
         app:srcCompat="@drawable/logotext" />
 
     <ImageView
@@ -132,10 +134,10 @@
         android:layout_height="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintHorizontal_bias="0.042"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.031"
+        app:layout_constraintVertical_bias="0.037"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
     <ImageView
@@ -169,18 +171,16 @@
         android:id="@+id/tahunb"
         android:layout_width="76dp"
         android:layout_height="30dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="427dp"
-        android:layout_marginEnd="253dp"
-        android:layout_marginBottom="268dp"
         android:text="9+ Tahun"
         android:textColor="#eeee"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.215"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.618" />
 
     <ImageView
         android:id="@+id/fotob"
