@@ -16,7 +16,7 @@ public class Viko extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detailmechanic3);
+        setContentView(R.layout.activity_dethailmecanicempat);
 
         Button chatButton = findViewById(R.id.chatv);
         ImageView backButton = findViewById(R.id.backv);
@@ -29,5 +29,6 @@ public class Viko extends AppCompatActivity {
             Intent intent = new Intent(Viko.this, FindMechanic.class);
             startActivity(intent);
         });
+
     }
 }

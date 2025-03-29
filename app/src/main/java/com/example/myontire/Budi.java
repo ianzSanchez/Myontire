@@ -16,7 +16,7 @@ public class Budi extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detailmechanic4);
+        setContentView(R.layout.activity_dethailmecanictiga);
 
         Button chatButton = findViewById(R.id.chatb);
         ImageView backButton = findViewById(R.id.backb);

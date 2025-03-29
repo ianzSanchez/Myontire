@@ -12,12 +12,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-
 public class Abdul extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detailmechanic2);
+        setContentView(R.layout.activity_dethailmecanicdua);
 
         Button chatButton = findViewById(R.id.chatabdl);
         ImageView backButton = findViewById(R.id.backabdl);
@@ -30,5 +29,4 @@ public class Abdul extends AppCompatActivity {
             Intent intent = new Intent(Abdul.this, FindMechanic.class);
             startActivity(intent);
         });
-    }
-}
+}}
