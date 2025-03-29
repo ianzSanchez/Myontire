@@ -10,7 +10,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:text="Fill Booking Data"
                 android:textAlignment="center"
+                android:textColor="#023047"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -31,55 +34,68 @@
                 android:id="@+id/TextViewdatakendaraan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingStart="10dp"
                 android:text="1. Vehicle Data"
+                android:textColor="#000"
                 android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextTextMerek"
-                android:layout_width="match_parent"
+                android:layout_width="368dp"
                 android:layout_height="48dp"
                 android:hint="Brand"
-                android:inputType="text" />
+                android:inputType="text"
+                android:paddingStart="20dp" />
 
             <EditText
                 android:id="@+id/editTextTextKM"
-                android:layout_width="match_parent"
+                android:layout_width="368dp"
                 android:layout_height="48dp"
                 android:hint="Km"
-                android:inputType="text" />
+                android:inputType="text"
+                android:paddingStart="20dp" />
 
             <EditText
                 android:id="@+id/editTextTextKeluhan"
-                android:layout_width="match_parent"
+                android:layout_width="368dp"
                 android:layout_height="48dp"
                 android:hint="Complaints"
-                android:inputType="text" />
+                android:inputType="text"
+                android:paddingStart="20dp"
+                android:textColor="#000" />
 
             <TextView
                 android:id="@+id/textViewpilihjadwal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingStart="10dp"
                 android:text="2. Choose Schedule"
+                android:textColor="#000"
                 android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingRight="20dp">
 
                 <TextView
                     android:id="@+id/textViewtanggal"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="50dp"
+                    android:layout_weight="0.8"
+                    android:paddingStart="20dp"
                     android:text="DD/MM/YY"
+                    android:textColor="#000"
                     android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/buttontanggal"
-                    android:layout_width="130dp"
+                    android:layout_width="120dp"
                     android:layout_height="50dp"
                     android:backgroundTint="#023047"
                     android:text="Date"
@@ -89,19 +105,22 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingRight="20dp">
 
                 <TextView
                     android:id="@+id/textViewjam"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:paddingStart="20dp"
                     android:text="What Time?"
+                    android:textColor="#000"
                     android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/buttonjam"
-                    android:layout_width="130dp"
+                    android:layout_width="120dp"
                     android:layout_height="50dp"
                     android:backgroundTint="#023047"
                     android:text="Time"
@@ -112,23 +131,28 @@
                 android:id="@+id/textViewdata"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingStart="10dp"
                 android:text="3. Personal Data"
+                android:textColor="#000"
                 android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextTextnama"
-                android:layout_width="match_parent"
+                android:layout_width="368dp"
                 android:layout_height="48dp"
                 android:hint="Full Name"
-                android:inputType="text" />
+                android:inputType="text"
+                android:paddingStart="20dp" />
 
             <EditText
                 android:id="@+id/editTextTextalamat"
-                android:layout_width="match_parent"
+                android:layout_width="368dp"
                 android:layout_height="48dp"
                 android:hint="Address"
-                android:inputType="text" />
+                android:inputType="text"
+                android:paddingStart="20dp" />
 
             <!-- Menggunakan FrameLayout agar MapView tetap responsif -->
             <FrameLayout
@@ -140,10 +164,10 @@
                     android:id="@+id/mapView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:focusable="false"
                     android:clickable="false"
+                    android:contentDescription="Interactive Google Map"
                     android:descendantFocusability="blocksDescendants"
-                    android:contentDescription="Interactive Google Map" />
+                    android:focusable="false" />
             </FrameLayout>
 
             <Button
@@ -152,7 +176,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="#023047"
-                android:text="Save"
+                android:text="Send"
                 app:cornerRadius="5dp" />
         </LinearLayout>
     </ScrollView>

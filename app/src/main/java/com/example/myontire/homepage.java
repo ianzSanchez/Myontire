@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,11 +35,10 @@ public class homepage extends AppCompatActivity {
                 });
             }
         }
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        Button urgent = findViewById(R.id.buttonurgent);
+        urgent.setOnClickListener(view -> {
+            Intent intent = new Intent(homepage.this, DataBooking.class);
+            startActivity(intent);
         });
     }
 }

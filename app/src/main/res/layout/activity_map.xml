@@ -10,13 +10,12 @@
         android:id="@+id/title_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/your_location"
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
+        android:background="@drawable/gradient_header"
         android:gravity="center"
         android:padding="12dp"
-        android:background="@drawable/gradient_header"
-        android:layout_centerHorizontal="true" />
+        android:text="@string/your_location"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map"

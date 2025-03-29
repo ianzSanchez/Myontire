@@ -47,4 +47,5 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(libs.playServicesMaps)
     implementation (libs.play.services.location)
+    implementation("com.google.android.gms:play-services-location:21.3.0")
 }

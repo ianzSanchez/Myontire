@@ -55,17 +55,17 @@
         android:id="@+id/headurgent"
         android:layout_width="144dp"
         android:layout_height="77dp"
-        android:layout_marginTop="98dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/banner"
+        app:layout_constraintTop_toBottomOf="@+id/banner"
         app:srcCompat="@drawable/urgent" />
 
     <ImageView
         android:id="@+id/banner"
         android:layout_width="413dp"
         android:layout_height="72dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/hpbanner" />
@@ -74,7 +74,7 @@
         android:id="@+id/logohome"
         android:layout_width="140dp"
         android:layout_height="34dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logotext" />

@@ -1,72 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
     tools:context=".RequestStatusActivity">
 
     <!-- Title -->
+
+    <!-- Status Card -->
+
     <TextView
         android:id="@+id/requestStatusTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:fontFamily="sans-serif-black"
         android:text="Request Status"
+        android:textColor="#023047"
         android:textSize="26sp"
         android:textStyle="bold"
-        android:fontFamily="sans-serif-black"
-        android:textColor="#023047"
-        android:layout_marginTop="50dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-    <!-- Status Card -->
     <androidx.cardview.widget.CardView
         android:id="@+id/statusCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
         android:padding="20dp"
+        app:cardBackgroundColor="#ffffff"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
-        app:cardBackgroundColor="#ffffff"
-        app:layout_constraintTop_toBottomOf="@+id/requestStatusTitle"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/requestStatusTitle">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/requestStatusText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Waiting for Mechanic Confirmation..."
-                android:textSize="18sp"
                 android:fontFamily="sans-serif-medium"
-                android:textColor="#023047"
-                android:textAlignment="center"
                 android:gravity="center"
-                android:padding="8dp"/>
+                android:padding="8dp"
+                android:text="Waiting for Mechanic Confirmation..."
+                android:textAlignment="center"
+                android:textColor="#023047"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/requestEstimatedTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Estimated Arrival: 10 minutes"
-                android:textSize="16sp"
-                android:textColor="#fb8500"
                 android:fontFamily="sans-serif-medium"
-                android:textAlignment="center"
                 android:gravity="center"
-                android:paddingTop="6dp"/>
+                android:paddingTop="6dp"
+                android:text="Estimated Arrival: 10 minutes"
+                android:textAlignment="center"
+                android:textColor="#fb8500"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -77,32 +78,50 @@
         android:id="@+id/statusProgressBar"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:indeterminate="true"
         android:layout_marginTop="20dp"
+        android:indeterminate="true"
         android:theme="@style/Widget.AppCompat.ProgressBar"
-        app:layout_constraintTop_toBottomOf="@+id/statusCard"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/statusCard" />
 
     <!-- Cancel Button -->
     <Button
         android:id="@+id/cancelRequestButton"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
         android:layout_marginHorizontal="30dp"
-        android:backgroundTint="#ffb703"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#fb8500"
+        android:elevation="4dp"
+        android:fontFamily="sans-serif-medium"
         android:text="Cancel Request"
         android:textColor="#023047"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:fontFamily="sans-serif-medium"
-        android:elevation="4dp"
         app:cornerRadius="12dp"
-        app:strokeColor="#fb8500"
-        app:strokeWidth="2dp"
-        app:layout_constraintTop_toBottomOf="@+id/statusProgressBar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/statusProgressBar"
+        app:strokeColor="#00FB8500"
+        app:strokeWidth="2dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="413dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reqbanner" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="140dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:srcCompat="@drawable/logotext" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
