@@ -56,8 +56,8 @@ public class FindMechanic extends AppCompatActivity {
         // Tambahkan mekanik dan lokasi mereka
         addMechanicCard(R.id.mechanic_name_budi, R.id.mechanic_card_budi, "Jakarta");
         addMechanicCard(R.id.mechanic_name_agus, R.id.mechanic_card_agus, "Bandung");
-        addMechanicCard(R.id.mechanic_name_viko, R.id.mechanic_card_viko, "Surabaya");
-        addMechanicCard(R.id.mechanic_name_abdul, R.id.mechanic_card_abdul, "Solo");
+        addMechanicCard(R.id.mechanic_name_viko, R.id.mechanic_card_viko, "Solo");
+        addMechanicCard(R.id.mechanic_name_abdul, R.id.mechanic_card_abdul, "Surabaya");
 
 
         Button btnChooseAgus = findViewById(R.id.btn_choose_agus);
