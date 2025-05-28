@@ -28,3 +28,4 @@ navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 
+

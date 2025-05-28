@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "868390411828",
+    "project_id": "myontireproject",
+    "storage_bucket": "myontireproject.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868390411828:android:a9f368b65a403a99c87461",
+        "android_client_info": {
+          "package_name": "com.example.myontire"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHLM9XG3YjCuJHmc4YAxKsI8_5SXsHACk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
