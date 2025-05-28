@@ -9,10 +9,28 @@
     tools:context=".LoginPage">
 
     <Button
+        android:id="@+id/SignUpButton"
+        android:layout_width="347dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="120dp"
+        android:backgroundTint="#ffffff"
+        android:letterSpacing="0.1"
+        android:text="Sign Up"
+        android:textColor="#27334B"
+        android:textSize="15sp"
+        app:cornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="#27334B"
+        app:strokeWidth="2dp" />
+
+    <Button
         android:id="@+id/LoginButton"
         android:layout_width="347dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="156dp"
+        android:layout_marginBottom="52dp"
         android:backgroundTint="#27334B"
         android:letterSpacing="0.1"
         android:text="login"
@@ -38,11 +56,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+    <EditText
+        android:id="@+id/editTextTextEmailAddress2"
+        android:layout_width="345dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="please input your email"
+        android:inputType="textEmailAddress"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidth="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="148dp"
         android:layout_height="29dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="20dp"
         android:text="E-mail address"
         android:textAlignment="viewStart"
         android:textSize="18sp"
@@ -54,7 +89,8 @@
         android:id="@+id/textView4"
         android:layout_width="113dp"
         android:layout_height="27dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="4dp"
         android:text="Password"
         android:textAlignment="viewStart"
         android:textSize="18sp"
@@ -66,7 +102,7 @@
         android:id="@+id/editTextTextPassword"
         android:layout_width="342dp"
         android:layout_height="64dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:hint="please input your password"
         android:inputType="textPassword"
@@ -74,33 +110,16 @@
         app:boxStrokeColor="@color/black"
         app:boxStrokeWidth="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.623"
+        app:layout_constraintHorizontal_bias="0.579"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress2" />
-
-    <EditText
-        android:id="@+id/editTextTextEmailAddress2"
-        android:layout_width="345dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="110dp"
-        android:ems="10"
-        android:hint="please input your email"
-        android:inputType="textEmailAddress"
-        android:textAlignment="viewStart"
-        android:textSize="18sp"
-        app:boxStrokeColor="@color/black"
-        app:boxStrokeWidth="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.59"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
         android:text="remember me for 30 days"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
@@ -121,5 +140,32 @@
         app:layout_constraintHorizontal_bias="0.566"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="345dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="84dp"
+        android:ems="10"
+        android:hint="please input your username"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/usernameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:letterSpacing="0.05"
+        android:text="Username"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/editTextUsername"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.906" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
