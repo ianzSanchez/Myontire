@@ -11,10 +11,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
+
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -28,6 +30,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
@@ -41,8 +44,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     private Marker currentMarker;
     private boolean isMarkerMovedByUser = false;
 
-    private Button Confirm;
-    private Button GetCurrentLocation;
+    private Button confirmButton;
+    private Button getCurrentLocationButton;
     private String address;
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
@@ -53,24 +56,25 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         setContentView(R.layout.activity_map);
 
         locationText = findViewById(R.id.location_text);
-        GetCurrentLocation = findViewById(R.id.btn_get_location);
+        getCurrentLocationButton = findViewById(R.id.btn_get_location);
+        confirmButton = findViewById(R.id.btn_confirm);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        Confirm = findViewById(R.id.btn_confirm);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
 
-        GetCurrentLocation.setOnClickListener(v -> {
+        getCurrentLocationButton.setOnClickListener(v -> {
             isMarkerMovedByUser = false;
             getLastKnownLocation();
         });
 
-        Confirm.setOnClickListener(v -> {
-            Intent act1 = new Intent(MapActivity.this, DataBooking.class);
-            act1.putExtra("Chosen_Address", address);
-            startActivity(act1);
+        confirmButton.setOnClickListener(v -> {
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("Chosen_Address", address);
+            setResult(RESULT_OK, resultIntent);
+            finish(); // kembali ke DataBooking
         });
     }
 
@@ -86,7 +90,8 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     @SuppressLint("MissingPermission")
     private void startLocationUpdates() {
         LocationRequest locationRequest = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 5000)
-                .setMinUpdateIntervalMillis(2000).build();
+                .setMinUpdateIntervalMillis(2000)
+                .build();
 
         locationCallback = new LocationCallback() {
             @Override
@@ -116,7 +121,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             if (currentMarker != null) {
                 currentMarker.remove();
             }
-            currentMarker = mMap.addMarker(new MarkerOptions().position(latLng).title(getString(R.string.selected_location)).draggable(true));
+            currentMarker = mMap.addMarker(new MarkerOptions().position(latLng).title("Selected Location").draggable(true));
             isMarkerMovedByUser = true;
             updateLocationText(latLng);
         });
@@ -128,8 +133,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             }
 
             @Override
-            public void onMarkerDrag(@NonNull Marker marker) {
-            }
+            public void onMarkerDrag(@NonNull Marker marker) {}
 
             @Override
             public void onMarkerDragEnd(@NonNull Marker marker) {
@@ -142,7 +146,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         if (!isMarkerMovedByUser) {
             LatLng userLatLng = new LatLng(location.getLatitude(), location.getLongitude());
             if (currentMarker == null) {
-                currentMarker = mMap.addMarker(new MarkerOptions().position(userLatLng).title(getString(R.string.your_location)).draggable(true));
+                currentMarker = mMap.addMarker(new MarkerOptions().position(userLatLng).title("Your Location").draggable(true));
             } else {
                 currentMarker.setPosition(userLatLng);
             }
@@ -156,31 +160,33 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         try {
             List<Address> addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
             if (addresses != null && !addresses.isEmpty()) {
-                address = addresses.get(0).getAddressLine(0); // Simpan ke variabel instance
+                address = addresses.get(0).getAddressLine(0);
                 locationText.setText(address);
             } else {
-                locationText.setText(getString(R.string.address_not_found));
+                locationText.setText("Address not found");
             }
         } catch (IOException e) {
             Log.e("MapActivity", "Error retrieving address", e);
-            locationText.setText(getString(R.string.error_retrieving_address));
+            locationText.setText("Error retrieving address");
         }
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                getLastKnownLocation();
-                startLocationUpdates();
-            }
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE &&
+                grantResults.length > 0 &&
+                grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            getLastKnownLocation();
+            startLocationUpdates();
         }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        fusedLocationClient.removeLocationUpdates(locationCallback);
+        if (locationCallback != null) {
+            fusedLocationClient.removeLocationUpdates(locationCallback);
+        }
     }
 }

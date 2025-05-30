@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,17 +22,20 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DataBooking extends AppCompatActivity implements OnMapReadyCallback {
 
-    private TextView addressTextView;
-    private Button tanggal, jam;
-    private TextView textViewTanggal, textViewJam;
+    private TextView addressTextView, textViewTanggal, textViewJam;
+    private Button tanggal, jam, buttonSave;
     private MapView mapView;
     private GoogleMap gMap;
-    private Button buttonsave;
+    private FirebaseFirestore db;
 
     private static final int REQUEST_MAP = 100;
 
@@ -40,47 +45,43 @@ public class DataBooking extends AppCompatActivity implements OnMapReadyCallback
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_databooking);
 
-        // Inisialisasi UI
+        FirebaseApp.initializeApp(this);
+        db = FirebaseFirestore.getInstance();
+
         addressTextView = findViewById(R.id.editTextTextalamat);
         tanggal = findViewById(R.id.buttontanggal);
         jam = findViewById(R.id.buttonjam);
         textViewTanggal = findViewById(R.id.textViewtanggal);
         textViewJam = findViewById(R.id.textViewjam);
         mapView = findViewById(R.id.mapView);
-        Button buttonSave = findViewById(R.id.btn_save);
+        buttonSave = findViewById(R.id.btn_save);
 
-        buttonSave.setOnClickListener(v -> {
-            Intent intent = new Intent(DataBooking.this, RequestStatusActivity.class);
-            startActivity(intent);
-        });
+        EditText editTextNama = findViewById(R.id.editTextTextnama);
+        EditText editTextMerek = findViewById(R.id.editTextTextMerek);
+        EditText editTextKM = findViewById(R.id.editTextTextKM);
+        EditText editTextKeluhan = findViewById(R.id.editTextTextKeluhan);
 
-        addressTextView.setOnClickListener(v -> {
-            Intent intent = new Intent(DataBooking.this, MapActivity.class);
-            startActivityForResult(intent, REQUEST_MAP);
-        });
-
-        // Inisialisasi MapView
-        initMapView(savedInstanceState);
-
-        // Mengambil alamat yang dikirim dari intent sebelumnya
-        String getAddress = getIntent().getStringExtra("Chosen_Address");
-        if (getAddress != null) {
-            addressTextView.setText(getAddress);
-        }
-
-        // Menyesuaikan padding sesuai dengan system bars
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // DatePicker Dialog untuk memilih tanggal
+        String getAddress = getIntent().getStringExtra("Chosen_Address");
+        if (getAddress != null) {
+            addressTextView.setText(getAddress);
+        }
+
+        addressTextView.setOnClickListener(v -> {
+            Intent intent = new Intent(DataBooking.this, MapActivity.class);
+            startActivityForResult(intent, REQUEST_MAP);
+        });
+
         tanggal.setOnClickListener(v -> {
-            Calendar b = Calendar.getInstance();
-            int year = b.get(Calendar.YEAR);
-            int month = b.get(Calendar.MONTH);
-            int day = b.get(Calendar.DAY_OF_MONTH);
+            Calendar c = Calendar.getInstance();
+            int year = c.get(Calendar.YEAR);
+            int month = c.get(Calendar.MONTH);
+            int day = c.get(Calendar.DAY_OF_MONTH);
 
             DatePickerDialog datePickerDialog = new DatePickerDialog(DataBooking.this,
                     (view, selectedYear, selectedMonth, selectedDay) -> {
@@ -90,7 +91,6 @@ public class DataBooking extends AppCompatActivity implements OnMapReadyCallback
             datePickerDialog.show();
         });
 
-        // TimePicker Dialog untuk memilih waktu
         jam.setOnClickListener(v -> {
             Calendar c = Calendar.getInstance();
             int hour = c.get(Calendar.HOUR_OF_DAY);
@@ -104,9 +104,59 @@ public class DataBooking extends AppCompatActivity implements OnMapReadyCallback
             timePickerDialog.show();
         });
 
+        initMapView(savedInstanceState);
+
+        // LOGIKA BUTTON SAVE
+        buttonSave.setOnClickListener(v -> {
+            String nama = editTextNama.getText().toString().trim();
+            String alamat = addressTextView.getText().toString().trim();
+            String tanggalStr = textViewTanggal.getText().toString().trim();
+            String jamStr = textViewJam.getText().toString().trim();
+            String merek = editTextMerek.getText().toString().trim();
+            String km = editTextKM.getText().toString().trim();
+            String keluhan = editTextKeluhan.getText().toString().trim();
+
+            if (nama.isEmpty() || alamat.isEmpty() || tanggalStr.isEmpty() || jamStr.isEmpty() ||
+                    merek.isEmpty() || km.isEmpty() || keluhan.isEmpty()) {
+                Toast.makeText(this, "Please complete all fields before proceeding", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            Map<String, Object> booking = new HashMap<>();
+            booking.put("nama", nama);
+            booking.put("alamat", alamat);
+            booking.put("tanggal", tanggalStr);
+            booking.put("jam", jamStr);
+            booking.put("merek", merek);
+            booking.put("kilometer", km);
+            booking.put("keluhan", keluhan);
+            booking.put("timestamp", System.currentTimeMillis());
+
+            db.collection("bookings")
+                    .add(booking)
+                    .addOnSuccessListener(documentReference -> {
+                        Toast.makeText(this, "Booking successfully done!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(DataBooking.this, RequestStatusActivity.class);
+                        startActivity(intent);
+                        finish();
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, "Failed to save data. Please try again.", Toast.LENGTH_SHORT).show();
+                    });
+        });
     }
 
-    // Inisialisasi MapView
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_MAP && resultCode == RESULT_OK && data != null) {
+            String getAddress = data.getStringExtra("Chosen_Address");
+            if (getAddress != null) {
+                addressTextView.setText(getAddress);
+            }
+        }
+    }
+
     private void initMapView(Bundle savedInstanceState) {
         if (mapView != null) {
             mapView.onCreate(savedInstanceState);
@@ -125,32 +175,24 @@ public class DataBooking extends AppCompatActivity implements OnMapReadyCallback
     @Override
     protected void onResume() {
         super.onResume();
-        if (mapView != null) {
-            mapView.onResume();
-        }
+        if (mapView != null) mapView.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (mapView != null) {
-            mapView.onPause();
-        }
+        if (mapView != null) mapView.onPause();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mapView != null) {
-            mapView.onDestroy();
-        }
+        if (mapView != null) mapView.onDestroy();
     }
 
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        if (mapView != null) {
-            mapView.onLowMemory();
-        }
+        if (mapView != null) mapView.onLowMemory();
     }
 }

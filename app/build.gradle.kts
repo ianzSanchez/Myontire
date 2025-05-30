@@ -50,7 +50,9 @@ dependencies {
     implementation(libs.playServicesMaps)
     implementation(libs.play.services.location)
 
+    // Firebase dependencies
     implementation(platform("com.google.firebase:firebase-bom:33.14.0"))
     implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-firestore:24.9.1")
     implementation("com.google.android.gms:play-services-location:21.3.0")
 }
