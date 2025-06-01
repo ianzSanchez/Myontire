@@ -43,6 +43,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
     private TextView locationText;
     private Marker currentMarker;
     private boolean isMarkerMovedByUser = false;
+    private LatLng chosenLatLng;
 
     private Button confirmButton;
     private Button getCurrentLocationButton;
@@ -73,10 +74,15 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         confirmButton.setOnClickListener(v -> {
             Intent resultIntent = new Intent();
             resultIntent.putExtra("Chosen_Address", address);
+
+            // PASTIKAN chosenLatLng TIDAK NULL SEBELUM DIKIRIM
+            if (chosenLatLng != null) {
+                resultIntent.putExtra("Chosen_Latitude", chosenLatLng.latitude);
+                resultIntent.putExtra("Chosen_Longitude", chosenLatLng.longitude);
+            }
             setResult(RESULT_OK, resultIntent);
             finish(); // kembali ke DataBooking
-        });
-    }
+        });    }
 
     @SuppressLint("MissingPermission")
     private void getLastKnownLocation() {
@@ -152,6 +158,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             }
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userLatLng, 15));
             updateLocationText(userLatLng);
+            chosenLatLng = userLatLng; // Simpan lokasi saat ini sebagai yang dipilih
         }
     }
 
@@ -162,12 +169,15 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
             if (addresses != null && !addresses.isEmpty()) {
                 address = addresses.get(0).getAddressLine(0);
                 locationText.setText(address);
+                chosenLatLng = latLng; // Simpan juga saat alamat diupdate dari klik/drag
             } else {
                 locationText.setText("Address not found");
+                chosenLatLng = latLng; // Simpan koordinat meskipun alamat tidak ditemukan
             }
         } catch (IOException e) {
             Log.e("MapActivity", "Error retrieving address", e);
             locationText.setText("Error retrieving address");
+            chosenLatLng = latLng; // Simpan koordinat meskipun ada error
         }
     }
 

@@ -56,3 +56,4 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore:24.9.1")
     implementation("com.google.android.gms:play-services-location:21.3.0")
 }
+
