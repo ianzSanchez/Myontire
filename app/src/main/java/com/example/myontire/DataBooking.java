@@ -36,7 +36,8 @@ public class DataBooking extends AppCompatActivity implements OnMapReadyCallback
     private MapView mapView;
     private GoogleMap gMap;
     private FirebaseFirestore db;
-
+    private double selectedLatitude = 0.0;
+    private double selectedLongitude = 0.0;
     private static final int REQUEST_MAP = 100;
 
     @Override
@@ -151,11 +152,22 @@ public class DataBooking extends AppCompatActivity implements OnMapReadyCallback
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_MAP && resultCode == RESULT_OK && data != null) {
             String getAddress = data.getStringExtra("Chosen_Address");
+            double lat = data.getDoubleExtra("Chosen_Latitude", 0.0); // Ambil lintang
+            double lng = data.getDoubleExtra("Chosen_Longitude", 0.0); // Ambil bujur
+
             if (getAddress != null) {
                 addressTextView.setText(getAddress);
+                selectedLatitude = lat; // Simpan lintang
+                selectedLongitude = lng; // Simpan bujur
+
+                // Perbarui peta di DataBooking setelah mendapatkan lokasi baru
+                if (gMap != null) {
+                    updateMapWithSelectedLocation();
+                }
             }
         }
     }
+
 
     private void initMapView(Bundle savedInstanceState) {
         if (mapView != null) {
@@ -167,11 +179,28 @@ public class DataBooking extends AppCompatActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         gMap = googleMap;
-        LatLng defaultLocation = new LatLng(-6.200000, 106.816666); // Jakarta
-        gMap.addMarker(new MarkerOptions().position(defaultLocation).title("Default Location"));
-        gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLocation, 15));
+        // Panggil metode untuk memperbarui peta dengan lokasi yang dipilih
+        updateMapWithSelectedLocation();
     }
 
+    // Metode baru untuk memperbarui peta dengan lokasi yang dipilih
+    private void updateMapWithSelectedLocation() {
+        // Jika belum ada lokasi yang dipilih dari MapActivity, gunakan default
+        if (selectedLatitude == 0.0 && selectedLongitude == 0.0) {
+            // Ini akan terjadi pertama kali saat DataBooking dibuka
+            // Anda bisa menggunakan lokasi default atau biarkan kosong
+            LatLng defaultLocation = new LatLng(-6.200000, 106.816666); // Jakarta
+            gMap.clear(); // Hapus marker lama
+            gMap.addMarker(new MarkerOptions().position(defaultLocation).title("Default Location"));
+            gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLocation, 15));
+        } else {
+            // Gunakan lokasi yang diterima dari MapActivity
+            LatLng chosenLocation = new LatLng(selectedLatitude, selectedLongitude);
+            gMap.clear(); // Hapus marker lama
+            gMap.addMarker(new MarkerOptions().position(chosenLocation).title("Selected Location"));
+            gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(chosenLocation, 15));
+        }
+    }
     @Override
     protected void onResume() {
         super.onResume();
